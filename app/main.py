@@ -20,5 +20,11 @@ def get_human_age(cat_age: int, dog_age: int) -> list[int]:
 
     Returns:
         List with [cat_human_age, dog_human_age]
+
+    Raises:
+        TypeError: if any age is not an integer
     """
+    for age in (cat_age, dog_age):
+        if not isinstance(age, int) or isinstance(age, bool):
+            raise TypeError("Age must be an integer")
     return [convert_age(cat_age, 4), convert_age(dog_age, 5)]
